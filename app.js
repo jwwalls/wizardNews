@@ -4,8 +4,8 @@ const { list, find } = require("./postBank");
 
 app.use(express.static("public"));
 
-console.log(list());
 app.get("/", (req, res) => {
+  const posts = list();
   res.send(`<html>
   <head>
     <link rel="stylesheet" href="/style.css" />
@@ -13,6 +13,14 @@ app.get("/", (req, res) => {
   </head>
   <body>
     <h1>Wizard News</h1>
+    <ul>
+   ${posts
+     .map((post) => {
+       return `<li>${post.title}</li>`;
+     })
+     .join("")}
+
+    </ul>
   </body>
 </html>`);
 });
