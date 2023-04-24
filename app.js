@@ -81,7 +81,7 @@ app.get('/posts/:id', (req, res) => {
 </html>`);
 }});
 
-const { PORT = 1337 } = process.env;
+const { PORT = 8080 } = process.env;
 
 app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
